@@ -1,0 +1,17 @@
+{
+  "name": "for-every-fav",
+  "version": "1.0.0",
+  "description": "Trigger actions on tweet favorites.",
+  "scripts": {
+    "start": "node app"
+  },
+  "author": "Manny404",
+  "license": "ISC",
+  "dependencies": {
+    "colors": "^1.1.2",
+    "lodash": "^4.6.1",
+    "lowdb": "^0.12.5",
+    "twitter": "^1.2.5",
+    "user-stream": "0.0.7"
+  }
+}

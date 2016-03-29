@@ -1,0 +1,14 @@
+{
+  "user": {
+    "name": "SHAQ", 
+    "id": 17461978,  
+    "tweet_id_str": "713479668221906944" 
+  },
+  "api": {
+    "consumer_key": "XXXX",
+    "consumer_secret": "XXX",
+    "access_token_key": "XXX",
+    "access_token_secret": "XXX"
+  }
+}
+
