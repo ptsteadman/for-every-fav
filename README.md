@@ -26,6 +26,7 @@ If you want to use it yourself, set up a `config.json` that looks like:
 
 and an `ALL.json` file with all your tweets in the format:
 
+```js
 [
   {
     "id_str": "6723587233",
@@ -36,5 +37,6 @@ and an `ALL.json` file with all your tweets in the format:
     "text": "went to the la zoo today, a chimpanzee spit at me, dam i must be ugly, lol"
   }
 ]
+```
 
 then run `node app`
