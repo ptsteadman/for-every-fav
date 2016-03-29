@@ -21,7 +21,9 @@ if (!state.object.tweets.length && !state.object.tweets_deleted.length) {
 stream.stream();
 
 stream.on('data', function(json) {
-  if (!json.event) return;
+  if (!json.event || !json.target_object || !json.source) {
+    return;
+  }
 
   var isFav = json.event === 'favorite';
   var isTweet = json.target_object.id_str === config.user.tweet_id_str;
