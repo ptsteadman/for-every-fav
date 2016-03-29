@@ -37,6 +37,8 @@ function deleteRandomTweet(e) {
   var alreadySubmitted = state.object.user_ids_submitted;
   if (alreadySubmitted.indexOf(e.id) > -1) {
     console.log('');
+    console.log('Do you even code?'.rainbow.bold);
+    console.log('');
     console.log(e.screen_name.yellow.bold, ' TRIED TO SUBMIT AGAIN!'.red.bold);
     return;
   }
