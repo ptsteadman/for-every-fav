@@ -29,15 +29,15 @@ stream.on('data', function(json) {
   var isTweet = json.target_object.id_str === config.user.tweet_id_str;
 
   if (isFav && isTweet) {
-    deleteRandomTweet(json.source.screen_name);
+    deleteRandomTweet(json.source);
   }
 });
 
-function deleteRandomTweet(user) {
-  var alreadySubmitted = state.object.users_submitted;
-  if (alreadySubmitted.indexOf(user) > -1) {
+function deleteRandomTweet(e) {
+  var alreadySubmitted = state.object.user_ids_submitted;
+  if (alreadySubmitted.indexOf(e.id) > -1) {
     console.log('');
-    console.log(user.yellow.bold, ' TRIED TO SUBMIT AGAIN!'.red.bold);
+    console.log(e.screen_name.yellow.bold, ' TRIED TO SUBMIT AGAIN!'.red.bold);
     return;
   }
 
@@ -49,14 +49,14 @@ function deleteRandomTweet(user) {
       console.log('TWEET ERRORED !!!'.bold.red);
       console.log(JSON.stringify(err, 0, 2).red);
     } else {
-      state.object.users_submitted.push(user);
+      state.object.user_ids_submitted.push(e.id);
       state.object.tweets_deleted.push(nextTweet);
       state.object.tweets = _.without(state.object.tweets, nextTweet);
       state.write();
       console.log('');
       console.log('~~~~~~~~~~~~~~~~'.rainbow);
       console.log('');
-      console.log('USER '.cyan, user.yellow.bold, ' DELETED:'.cyan);
+      console.log('USER '.cyan, e.screen_name.yellow.bold, ' DELETED:'.cyan);
       console.log(nextTweet.text.white);
       console.log('');
       console.log('~~~~~~~~~~~~~~~~'.rainbow);
